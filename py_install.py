@@ -81,16 +81,19 @@ def install_or_update_tofu():
 
 def install_or_update_awscdk():
     print("Verificando AWS CDK...")
-    if is_installed('aws_cdk'):
-        print("AWS CDK está instalado, Atualizando com repositório oficial...")
+    if is_installed('cdk'):
+        print("AWS CDK está instalado, Atualizando...")
+        subprocess.call('sudo npm update -g aws-cdk', shell=True)
     else:
         print("AWS CDK não está instalado, Instalando de acordo com a documentação oficial.")
-    awscdk_commands =[
-        'sudo apt install nodejs npm -y',
-        'sudo npm install -g npm@latest',
-        'npm install -g aws-cdk',
-    ]
-    run_commands(awscdk_commands)
+        awscdk_commands = [
+            # Instalar Node.js via NodeSource para versão mais recente
+            'curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -',
+            'sudo apt-get install -y nodejs',
+            # Instalar AWS CDK globalmente com sudo
+            'sudo npm install -g aws-cdk'
+        ]
+        run_commands(awscdk_commands)
 
 # Pacotes padrão
 standard_packages = {
