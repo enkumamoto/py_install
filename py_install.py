@@ -99,7 +99,8 @@ def install_or_update_awscdk():
 standard_packages = {
     "Ansible": "ansible",
     "Python3": "python3",
-    "kubectl": "kubectl"
+    "kubectl": "kubectl",
+    "golang-go" : "golang-go"
 }
 
 for package, command in standard_packages.items():
