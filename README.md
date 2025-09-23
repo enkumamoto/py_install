@@ -36,7 +36,7 @@ O script instala e atualiza automaticamente as seguintes ferramentas:
 chmod +x my_stuff.py
 
 # Executar o script
-python3 my_stuff.py
+python3 py_install.py
 ```
 
 ## 🔧 Funcionalidades
